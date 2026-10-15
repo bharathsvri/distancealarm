@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service — Distance Alarm | B47 Tech</title>
+    <meta name="description" content="Terms and Conditions of Service for Distance Alarm Android application by B47 Tech.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #09090b;
+            --bg-surface: #121217;
+            --bg-elevated: #1c1c24;
+            --border-color: #272732;
+            --text-primary: #f4f4f5;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --accent: #f59e0b;
+            --accent-glow: rgba(245, 158, 11, 0.15);
+            --max-width: 820px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            line-height: 1.7;
+            padding: 0;
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            background-color: rgba(9, 9, 11, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            padding: 16px 24px;
+        }
+
+        .header-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 1.15rem;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-badge {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #09090b;
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 6px;
+            text-transform: uppercase;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-left: 20px;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover, nav a.active { color: var(--accent); }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+
+        .badge-pill {
+            display: inline-block;
+            background: var(--bg-elevated);
+            color: var(--accent);
+            border: 1px solid var(--border-color);
+            padding: 6px 14px;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .meta-info {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 36px;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 28px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        p { color: var(--text-secondary); margin-bottom: 16px; font-size: 1rem; }
+        p:last-child { margin-bottom: 0; }
+        ul { color: var(--text-secondary); margin-left: 20px; margin-bottom: 16px; }
+        li { margin-bottom: 8px; }
+        li strong { color: var(--text-primary); }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 32px 24px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        footer a { color: var(--text-secondary); margin: 0 10px; }
+
+        @media (max-width: 640px) {
+            h1 { font-size: 1.9rem; }
+            .card { padding: 22px; }
+            .container { padding: 32px 16px 60px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="brand-link">
+                <span>Distance Alarm</span>
+                <span class="brand-badge">B47 Tech</span>
+            </a>
+            <nav>
+                <a href="index.html">Overview</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms.html" class="active">Terms</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <span class="badge-pill">📜 User Agreement</span>
+        <h1>Terms of Service</h1>
+        <div class="meta-info">
+            <span><strong>Last Updated:</strong> October 15, 2026</span>
+            <span><strong>Developer:</strong> B47 Tech</span>
+            <span><strong>Application:</strong> Distance Alarm</span>
+        </div>
+
+        <section class="card">
+            <h2>1. Acceptance of Terms</h2>
+            <p>By downloading, installing, accessing, or using the <strong>Distance Alarm</strong> mobile application ("the App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not install or use the App.</p>
+        </section>
+
+        <section class="card">
+            <h2>2. Intended Use &amp; Transit Safety</h2>
+            <p>Distance Alarm is designed as an informational location and arrival reminder utility for commuters and passengers. You agree to the following conditions of use:</p>
+            <ul>
+                <li><strong>Passenger Use Only:</strong> Do not interact with the App, adjust pins, or change alarm settings while operating a motor vehicle, bicycle, or any machinery requiring your full attention.</li>
+                <li><strong>No Safety-Critical Guarantee:</strong> Distance Alarm relies on hardware sensors and satellite GPS signals provided by your mobile device. Physical obstructions (subways, tunnels, deep urban canyons, dense buildings) may degrade GPS accuracy or delay location updates.</li>
+                <li><strong>Secondary Reminder:</strong> The App is intended as a convenience tool and should not be solely relied upon for mission-critical arrivals, medical emergencies, or safety-critical appointments.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>3. License &amp; Intellectual Property</h2>
+            <p>B47 Tech grants you a personal, non-exclusive, non-transferable, revocable license to use Distance Alarm on compatible Android devices for your personal, non-commercial purposes.</p>
+            <p>All brand names, logos, software algorithms, and visual designs remain the intellectual property of B47 Tech.</p>
+        </section>
+
+        <section class="card">
+            <h2>4. Battery Optimization &amp; System Settings</h2>
+            <p>To ensure location alarms trigger reliably when your screen is locked, you may need to exclude the App from aggressive OEM battery management or battery saver restrictions. B47 Tech is not responsible for delayed alarms caused by operating system-level process killing or user-disabled location permissions.</p>
+        </section>
+
+        <section class="card">
+            <h2>5. Disclaimer of Warranties &amp; Limitation of Liability</h2>
+            <p>Distance Alarm is provided on an <strong>"AS IS"</strong> and <strong>"AS AVAILABLE"</strong> basis without warranties of any kind, either express or implied.</p>
+            <p>To the fullest extent permitted by applicable law, B47 Tech shall not be liable for any direct, indirect, incidental, special, consequential, or exemplary damages, including but not limited to missed stops, travel delays, transit fares, loss of time, or missed appointments arising from the use of or inability to use the App.</p>
+        </section>
+
+        <section class="card">
+            <h2>6. Modifications to Service</h2>
+            <p>We reserve the right to modify, update, or discontinue the App or any part thereof at any time with or without notice.</p>
+        </section>
+
+        <section class="card">
+            <h2>7. Contact Information</h2>
+            <p>For questions or assistance regarding these Terms of Service, contact:</p>
+            <p><strong>B47 Tech</strong><br>
+            Email: <a href="mailto:bharathsvri@gmail.com">bharathsvri@gmail.com</a><br>
+            Website: <a href="https://bharathsvri.github.io/distancealarm/">https://bharathsvri.github.io/distancealarm/</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 B47 Tech. All rights reserved.</p>
+        <p>
+            <a href="index.html">Home</a> &bull;
+            <a href="privacy-policy.html">Privacy Policy</a> &bull;
+            <a href="terms.html">Terms of Service</a>
+        </p>
+    </footer>
+
+</body>
+</html>

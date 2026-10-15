@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distance Alarm — Smart Arrival &amp; Commute Location Alarm | B47 Tech</title>
+    <meta name="description" content="Distance Alarm is a smart, offline-first GPS arrival alarm for Android. Never miss your bus stop, train station, or transit destination.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #09090b;
+            --bg-surface: #121217;
+            --bg-elevated: #1c1c24;
+            --border-color: #272732;
+            --text-primary: #f4f4f5;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --accent: #f59e0b;
+            --accent-hover: #d97706;
+            --accent-glow: rgba(245, 158, 11, 0.15);
+            --max-width: 1040px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            background-color: rgba(9, 9, 11, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            padding: 18px 24px;
+        }
+
+        .header-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-badge {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #09090b;
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 6px;
+            text-transform: uppercase;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-left: 24px;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover, nav a.active { color: var(--accent); }
+
+        .hero {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 80px 24px 60px;
+            text-align: center;
+        }
+
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-elevated);
+            color: var(--accent);
+            border: 1px solid var(--border-color);
+            padding: 6px 16px;
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            margin-bottom: 20px;
+            line-height: 1.15;
+            background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 680px;
+            margin: 0 auto 36px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #09090b;
+            font-weight: 700;
+            padding: 14px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(245, 158, 11, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--bg-surface);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            font-weight: 600;
+            padding: 14px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-elevated);
+            border-color: var(--accent);
+        }
+
+        .features-grid {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px 80px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 32px;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(245, 158, 11, 0.4);
+            transform: translateY(-3px);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .feature-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .privacy-banner {
+            max-width: var(--max-width);
+            margin: 0 auto 80px;
+            padding: 0 24px;
+        }
+
+        .privacy-box {
+            background: linear-gradient(135deg, rgba(24, 24, 27, 0.9), rgba(18, 18, 23, 0.9));
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .privacy-box h2 {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+
+        .privacy-box p {
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin: 0 auto 24px;
+            font-size: 1.05rem;
+        }
+
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 40px 24px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer a { color: var(--text-secondary); margin: 0 12px; text-decoration: none; }
+        footer a:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.4rem; }
+            .subtitle { font-size: 1.1rem; }
+            .hero { padding: 50px 20px 40px; }
+            .features-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="brand-link">
+                <span>Distance Alarm</span>
+                <span class="brand-badge">B47 Tech</span>
+            </a>
+            <nav>
+                <a href="index.html" class="active">Overview</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms.html">Terms</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <span class="badge-pill">📍 High-Precision Transit Geofencing</span>
+        <h1>Never Miss Your Stop Again</h1>
+        <p class="subtitle">A smart, offline-first GPS arrival alarm designed for commuters, train passengers, and travelers. Set your destination, relax, and wake up right on time.</p>
+        <div class="cta-buttons">
+            <a href="privacy-policy.html" class="btn-primary">View Privacy Policy</a>
+            <a href="terms.html" class="btn-secondary">Terms of Service</a>
+        </div>
+    </section>
+
+    <section class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3 class="feature-title">Multi-Stage Milestones</h3>
+            <p class="feature-desc">Receive progressive heads-up warnings (500m, 300m, 100m) as you get closer to your transit stop, giving you plenty of time to prepare.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3 class="feature-title">100% On-Device Privacy</h3>
+            <p class="feature-desc">All calculations are processed in memory on your device. Your location coordinates are never logged, stored, or sent to external cloud servers.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3 class="feature-title">Screen-Off Tracking</h3>
+            <p class="feature-desc">Engineered with an optimized Android Foreground Service to track distance reliably with zero interruptions while your screen is locked.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">🔋</div>
+            <h3 class="feature-title">AMOLED Battery Saver</h3>
+            <p class="feature-desc">Obsidian dark mode with a pitch-black true AMOLED theme to ensure minimal battery consumption during long commute journeys.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">🛡️</div>
+            <h3 class="feature-title">Anti-Jitter Protection</h3>
+            <p class="feature-desc">Built-in GPS hysteresis guards against signal fluctuations or momentary jumps, preventing irritating duplicate alarms.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">⭐</div>
+            <h3 class="feature-title">Saved Frequent Places</h3>
+            <p class="feature-desc">Bookmark daily destinations like Home, Office, University, or Transit Hubs for instant 1-tap activation.</p>
+        </div>
+    </section>
+
+    <section class="privacy-banner">
+        <div class="privacy-box">
+            <h2>Committed to 100% User Privacy</h2>
+            <p>No user accounts. No ads. No analytics trackers. Distance Alarm is completely free and works entirely on your phone.</p>
+            <a href="privacy-policy.html" class="btn-primary">Read Full Privacy Policy &rarr;</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 B47 Tech. All rights reserved.</p>
+        <p style="margin-top: 8px;">
+            <a href="index.html">Overview</a> &bull;
+            <a href="privacy-policy.html">Privacy Policy</a> &bull;
+            <a href="terms.html">Terms of Service</a> &bull;
+            <a href="mailto:bharathsvri@gmail.com">Contact Support</a>
+        </p>
+    </footer>
+
+</body>
+</html>
